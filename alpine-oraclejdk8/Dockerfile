@@ -54,10 +54,10 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip &
     unzip -jo -d "${JAVA_HOME}/jre/lib/security" "jce_policy-${JAVA_VERSION}.zip" && \
     rm "${JAVA_HOME}/jre/lib/security/README.txt" && \
     apk del build-dependencies && \
-    apk add -U tzdata \
+    rm "/tmp/"* \
+RUN apk add -U tzdata \
     cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    apk del tzdata \
-    rm "/tmp/"*
+    apk del tzdata 
     
     
     
