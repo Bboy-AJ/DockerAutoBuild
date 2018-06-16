@@ -55,5 +55,8 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip &
     rm "${JAVA_HOME}/jre/lib/security/README.txt" && \
     apk del build-dependencies && \
     rm "/tmp/"*
-    ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
+    apk add -U tzdata
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+    apk del tzdata
+    
     
