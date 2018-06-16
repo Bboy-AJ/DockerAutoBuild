@@ -5,7 +5,6 @@ ENV JAVA_VERSION=8 \
     JAVA_BUILD=11 \
     JAVA_PATH=512cd62ec5174c3487ac17c61aaa89e8 \
     JAVA_HOME="/usr/lib/jvm/default-jvm"
-    TZ=Asia/Shanghai
 
 RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip && \
     cd "/tmp" && \
@@ -56,5 +55,5 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip &
     rm "${JAVA_HOME}/jre/lib/security/README.txt" && \
     apk del build-dependencies && \
     rm "/tmp/"*
-    ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+    ln -snf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo Asia/Shanghai > /etc/timezone
     
